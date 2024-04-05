@@ -20,7 +20,14 @@ const star1 = n => {
   }
 };
 
+const star1_2 = n => {
+  for (let i = 0; i < n; i++) {
+    console.log('*'.repeat(i + 1));
+  }
+}
+
 star1(5);
+star1_2(5);
 /*
 *
 **
@@ -28,3 +35,11 @@ star1(5);
 ****
 *****
 */
+
+const repeat = (str, n) => {
+  let res = '';
+  for (let i = 0; i < n; i++) {
+    console.log(str.repeat(i + 1));
+  }
+}
+repeat('o',10);

@@ -27,6 +27,13 @@ const solution = (slice, n) => {
   }
 };
 
+const solution2 = (slice, n) => Math.ceil(n/slice); // 반올림한다
+
+
 console.log(solution(7, 10)); // 2
 console.log(solution(4, 12)); // 3
 console.log(solution(2, 1)); // 1
+
+console.log(solution2(7, 10)); // 2
+console.log(solution2(4, 12)); // 3
+console.log(solution2(2, 1)); // 1

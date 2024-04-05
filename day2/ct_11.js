@@ -35,5 +35,33 @@ const solution = (a, b) => {
   }
 };
 
+const solution2 = (a, b) => {
+  const sum1 = '' + a + b;
+  const sum2 = '' + b + a;
+
+  return sum1 > sum2 ? sum1 : sum2;
+}
+
+const solution3 = (a, b) => {
+  const sum1 = +`${a}${b}`;
+  const sum2 = +`${b}${a}`;
+
+  return Math.max(sum1, sum2);
+}
+
+const solution4 = (a, b) => Math.max(+`${a}${b}`, +`${b}${a}`);
+
+
+
+
 console.log(solution(9, 91)); // 991
 console.log(solution(89, 8)); // 898
+
+console.log(solution2(9, 91)); // 991
+console.log(solution2(89, 8)); // 898
+
+console.log(solution3(9, 91)); // 991
+console.log(solution3(89, 8)); // 898
+
+console.log(solution4(9, 91)); // 991
+console.log(solution4(89, 8)); // 898

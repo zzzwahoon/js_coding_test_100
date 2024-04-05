@@ -26,16 +26,22 @@
 // 입출력 예 #2
 // - `angle`이 180이므로 평각입니다. 따라서 4를 return합니다.
 
+// const solution = angle => {
+//   if (0 < angle && angle < 90) {
+//     return 1;
+//   } else if (angle === 90) {
+//     return 2;
+//   } else if (90 < angle && angle < 180) {
+//     return 3;
+//   } else {
+//     return 4;
+//   }
+// };
 const solution = angle => {
-  if (0 < angle && angle < 90) {
-    return 1;
-  } else if (angle === 90) {
-    return 2;
-  } else if (90 < angle && angle < 180) {
-    return 3;
-  } else {
-    return 4;
-  }
+  if (angle < 90) return 1;
+  if (angle === 90) return 2;
+  if (angle > 90 && angle < 180) return 3;
+  if (angle === 180) return 4;
 };
 
 console.log(solution(70)); // 1

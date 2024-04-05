@@ -21,7 +21,9 @@
 
 const solution = (num1, num2) => {
   // return Math.floor(num1 / num2);
-  return parseInt(num1 / num2);
+  return Math.trunc(num1 / num2);     // 소수점 이하를 지운다.
+                                      // 이 방식이 제일 적합하다.
+  // return parseInt(num1 / num2);
 };
 
 console.log(solution(10, 5)); // 2

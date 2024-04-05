@@ -19,13 +19,15 @@
 // 입출력 예 #2
 // - 32는 3의 배수가 아니므로 0을 return합니다.
 
-const solution = (num, n) => {
-  if (num % n === 0) {
-    return 1;
-  } else {
-    return 0;
-  }
-};
+// const solution = (num, n) => {
+//   if (num % n === 0) {
+//     return 1;
+//   } else {
+//     return 0;
+//   }
+// };
+
+const solution = (num, n) => (num % n === 0 ? 1 : 0);
 
 console.log(solution(98, 2)); // 1
 console.log(solution(34, 3)); // 0

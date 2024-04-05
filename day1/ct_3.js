@@ -19,9 +19,12 @@
 // - 15,000원은 아이스 아메리카노 두 잔을 살 수 있고 잔돈은 4,000원입니다.
 
 const solution = money => {
-  coffee = Math.floor(money / 5500);
-  change = money % 5500;
-  return [coffee, change];
+  // coffee = Math.floor(money / 5500);
+  // coffee = Math.trunc(money / 5500);
+  // change = money % 5500;
+  // return [coffee, change];
+  const coffeePrice = 5500; // 상수
+  return [Math.trunc(money / coffeePrice), money % coffeePrice]
 };
 
 console.log(solution(5500)); // [1, 0]

@@ -26,8 +26,17 @@ const solution = (n, k) => {
   }else if (n >= 10) {
     return (12000 * n + 2000 * k) - (2000 * (Math.floor(n / 10)));
   }
-  
 };
+
+const solution2 = (n, k) => {
+  const lambs = n * 12000;
+  const drinks = (k - Math.trunc(n / 10)) * 2000;
+
+  return lambs + drinks;
+}
 
 console.log(solution(10, 3)); // 124000
 console.log(solution(64, 6)); // 768000
+
+console.log(solution2(10, 3)); // 124000
+console.log(solution2(64, 6)); // 768000
