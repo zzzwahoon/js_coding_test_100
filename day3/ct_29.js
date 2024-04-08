@@ -31,5 +31,23 @@ const solution = nums => {
   else return 0;
 };
 
+const solution_2 = nums => {
+	// 모든 원소들의 곱
+  const product = nums.reduce((acc, n) => acc * n, 1);
+	// 모든 원소들의 합
+  const sum = nums.reduce((acc, n) => acc + n, 0);
+
+  return product < sum ** 2 ? 1 : 0;
+};
+
+const solution_3 = nums => {
+  const [product, sum] = nums.reduce(([product, sum], n) => [product * n, sum + n], [1, 0]);
+  return product < sum ** 2 ? 1 : 0;
+};
+
 console.log(solution([3, 4, 5, 2, 1])); // 1
 console.log(solution([5, 7, 8, 3])); // 0
+console.log(solution_2([3, 4, 5, 2, 1])); // 1
+console.log(solution_2([5, 7, 8, 3])); // 0
+console.log(solution_3([3, 4, 5, 2, 1])); // 1
+console.log(solution_3([5, 7, 8, 3])); // 0

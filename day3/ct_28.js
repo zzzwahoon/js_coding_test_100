@@ -24,5 +24,21 @@ const solution = nums => {
   return [even, odd];
 };
 
+const solution_2 = nums => {
+  let evenCount = 0;
+  for (const n of nums) {
+    if ( n % 2 === 0) evenCount += 1;
+  }
+  return [evenCount, nums.length - evenCount];
+}
+
+const solution_3 = nums => {
+  const filteredLength = nums.filter(n => n % 2 === 0).length
+  return [filteredLength, nums.length - filteredLength]
+}
 console.log(solution([1, 2, 3, 4, 5])); // [2, 3]
 console.log(solution([1, 3, 5, 7])); // [0, 4]
+console.log(solution_2([1, 2, 3, 4, 5])); // [2, 3]
+console.log(solution_2([1, 3, 5, 7])); // [0, 4]
+console.log(solution_3([1, 2, 3, 4, 5])); // [2, 3]
+console.log(solution_3([1, 3, 5, 7])); // [0, 4]

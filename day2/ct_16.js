@@ -22,7 +22,14 @@ const star3 = n => {                    // 'n'이라는 매개변수로 출력�
     console.log(stars);
 }};
 
+const star3_2 = n => {
+  for (let i = 0; i < n; i++) {
+    console.log(' '.repeat(n - 1 -i) + '*'.repeat(i + 1));
+  }
+}
+
 star3(5);
+star3_2(5);
 /*
     *
    **

@@ -22,7 +22,7 @@
 const fizzBuzz = n => {
 	const arr = [];
   for (let i = 1; i <= n; i++) {
-    if (i % 3 === 0 && i % 5 === 0) arr.push('Fizzbuzz');
+    if (i % 3 === 0 && i % 5 === 0) arr.push('Fizzbuzz'); // 먼저 처리해야할 것부터 위로 
     else if (i % 3 === 0) arr.push('Fizz');
     else if (i % 5 === 0) arr.push('buzz');
     else arr.push(i.toString());
@@ -30,9 +30,11 @@ const fizzBuzz = n => {
   return arr;
 };
 
+
 console.log(fizzBuzz(3)); // ['1', '2', 'Fizz']
 console.log(fizzBuzz(5)); // ['1', '2', 'Fizz', '4', 'Buzz']
 console.log(fizzBuzz(20));
+
 /* 
 [
   '1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', 

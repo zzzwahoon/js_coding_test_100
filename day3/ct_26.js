@@ -25,5 +25,24 @@ const solution = (array, n) => {
   return count;
 };
 
+const solution_2 = (array, n) => {
+  let count = 0;
+  for (const num of array) {
+    if (num === n) count += 1;
+  }
+  return count;
+};
+
+// filter
+const solution_3 = (array, n) => array.filter(num => num === n).length;
+
+// map 
+// filter
+
+
 console.log(solution([1, 1, 2, 3, 4, 5], 1)); // 2
 console.log(solution([0, 2, 3, 4], 1)); // 0
+console.log(solution_2([1, 1, 2, 3, 4, 5], 1)); // 2
+console.log(solution_2([0, 2, 3, 4], 1)); // 0
+console.log(solution_3([1, 1, 2, 3, 4, 5], 1)); // 2
+console.log(solution_3([0, 2, 3, 4], 1)); // 0

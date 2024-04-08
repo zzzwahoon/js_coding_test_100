@@ -25,6 +25,19 @@ const sum = n => {
   return result;
 };
 
+// 재귀함수 
+const sum_2 = n => (n === 0 ? 0 : sum_2(n - 1) + n); // 탈출 조건 필수
+
+// map, filter, reduce 꼭 공부
+// 미리 n까지 만들고 하나씩 더한다
+const sum_3 = n => Array.from({length: n}, (_, i) => i + 1).reduce((res, n) => res + n, 0);
+
 console.log(sum(10)); // 55
 console.log(sum(2)); // 3
 console.log(sum(1)); // 1
+console.log(sum_2(10)); // 55
+console.log(sum_2(2)); // 3
+console.log(sum_2(1)); // 1
+console.log(sum_3(10)); // 55
+console.log(sum_3(2)); // 3
+console.log(sum_3(1)); // 1

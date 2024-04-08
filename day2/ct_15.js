@@ -20,7 +20,16 @@ const star2 = n => {
   }
 };
 
+const star2_2 = n => {
+  const stars = '*'.repeat(n);
+  
+  for (let i = 0; i < n; i++) {
+    console.log(stars.slice(0,n - i));
+  }
+}
+
 star2(5);
+star2_2(5);
 /*
 *****
 ****

@@ -23,7 +23,14 @@ const star4 = n => {
   }
 };
 
+const star4_2 = n => {
+  for (let i = 0; i < n; i++) {
+    console.log(' '.repeat(i) + '*'.repeat(n - i));
+  }
+}
+
 star4(5);
+star4_2(5);
 /*
 *****
  ****

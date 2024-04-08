@@ -22,6 +22,12 @@ const solution = nums => {
   }
   return arr;
 };
+const solution_2 = nums => {
+  const arr = nums.map(n => n * 2);
+  return arr;
+}
 
 console.log(solution([1, 2, 3, 4, 5])); // [2, 4, 6, 8, 10]
 console.log(solution([1, 2, 100, -99, 1, 2, 3])); // [2, 4, 200, -198, 2, 4, 6]
+console.log(solution_2([1, 2, 3, 4, 5])); // [2, 4, 6, 8, 10]
+console.log(solution_2([1, 2, 100, -99, 1, 2, 3])); // [2, 4, 200, -198, 2, 4, 6]

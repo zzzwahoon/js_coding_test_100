@@ -15,6 +15,9 @@
 // 입출력 예 #1
 // - 3부터 10까지의 숫자들을 담은 리스트 [3, 4, 5, 6, 7, 8, 9, 10]를 return합니다.
 
+// 명령형(절차지형) vs 선언형(함수형)
+
+// 명령형(절차지형)
 const solution = (start, end) => {
   const arr = [];
   for (let i = start; i <= end; i++) {
@@ -23,4 +26,8 @@ const solution = (start, end) => {
   return arr;
 };
 
+// 선언형(함수형)
+const solution_2 = (start, end) => Array.from({length: end - start + 1}, (_, i) => i + start); // call back 함수를 전달받는 고차함수
+
 console.log(solution(3, 10)); // [3, 4, 5, 6, 7, 8, 9, 10]
+console.log(solution_2(3, 10)); // [3, 4, 5, 6, 7, 8, 9, 10]

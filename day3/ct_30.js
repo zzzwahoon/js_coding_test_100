@@ -16,7 +16,45 @@ const average = scores => {
   return avg;
 };
 
+const average_2 = scores => {
+  if (scores.length === 0) return 0;
+
+  let sum = 0;
+
+  for (const score of scores) {
+    sum += score;
+  }
+
+  return Math.round(sum / scores.length);
+};
+
+const average_3 = scores => {
+  let sum = 0;
+
+  for (const score of scores) {
+    sum += score;
+  }
+
+  // 0 / 0 => NaN
+  return Math.round(sum / scores.length) || 0;
+};
+
+const average_4 = scores =>
+  Math.round(scores.reduce((sum, score) => sum + score, 0) / scores.length) || 0;
+
 console.log(average([73, 82, 99])); // 85
 console.log(average([50, 100, 90, 45, 70])); // 71
 console.log(average([100])); // 100
 console.log(average([])); // 0
+console.log(average_2([73, 82, 99])); // 85
+console.log(average_2([50, 100, 90, 45, 70])); // 71
+console.log(average_2([100])); // 100
+console.log(average_2([])); // 0
+console.log(average_3([73, 82, 99])); // 85
+console.log(average_3([50, 100, 90, 45, 70])); // 71
+console.log(average_3([100])); // 100
+console.log(average_3([])); // 0
+console.log(average_4([73, 82, 99])); // 85
+console.log(average_4([50, 100, 90, 45, 70])); // 71
+console.log(average_4([100])); // 100
+console.log(average_4([])); // 0

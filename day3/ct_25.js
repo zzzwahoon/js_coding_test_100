@@ -26,7 +26,28 @@ const solution = n => {
   return result;
 };
 
+const solution_2 = n => {
+  let res = 0;
+  for (let i = 2; i <= n; i += 2) {
+    res += i;
+  }
+  return res;
+}
+
+const solution_3 = n => {
+  const count = Math.trunc(n / 2); // 홀수 때문에 trunc 이용
+  return count ** 2 + count;
+}
+
 console.log(solution(10)); // 30
 console.log(solution(4)); // 6
 console.log(solution(3)); // 2
 console.log(solution(1)); // 0
+console.log(solution_2(10)); // 30
+console.log(solution_2(4)); // 6
+console.log(solution_2(3)); // 2
+console.log(solution_2(1)); // 0
+console.log(solution_3(10)); // 30
+console.log(solution_3(4)); // 6
+console.log(solution_3(3)); // 2
+console.log(solution_3(1)); // 0
