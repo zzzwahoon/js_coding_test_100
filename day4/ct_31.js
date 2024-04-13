@@ -30,5 +30,25 @@ const solution = (nums, n) => {
   return res;
 };
 
+const solution_2 = (nums, n) => {
+  for (const num of nums) {
+    if (num === n) return 1;
+  }
+
+  return 0;
+};
+
+// Functional
+const solution_3 = (nums, n) => (nums.includes(n) ? 1 : 0);
+
+const solution_4 = (nums, n) => +nums.includes(n);
+
+
 console.log(solution([1, 2, 3, 4, 5], 3)); // 1
 console.log(solution([15, 98, 23, 2, 15], 20)); // 0
+console.log(solution_2([1, 2, 3, 4, 5], 3)); // 1
+console.log(solution_2([15, 98, 23, 2, 15], 20)); // 0
+console.log(solution_3([1, 2, 3, 4, 5], 3)); // 1
+console.log(solution_3([15, 98, 23, 2, 15], 20)); // 0
+console.log(solution_4([1, 2, 3, 4, 5], 3)); // 1
+console.log(solution_4([15, 98, 23, 2, 15], 20)); // 0

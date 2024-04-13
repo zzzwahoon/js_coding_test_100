@@ -40,5 +40,30 @@ const solution = (l, r) => {
     return result.length > 0 ? result : [-1];
 };
 
+
+/////////////
+const solution_2 = (l, r) => {
+  const res = [];
+
+  outer: for (let i = l; i <= r; i++) {
+    for (const c of i + '') {
+      if (c !== '0' && c !== '5') continue outer;
+    }
+
+    res.push(i);
+  }
+
+  return res.length === 0 ? [-1] : res;
+};
+
+/////////
+const solution_3 = (l, r) => {
+  const res = Array.from({ length: r - l + 1 }, (_, i) => i + l).filter(n =>
+    [...(n + '')].every(c => c === '0' || c === '5')
+  );
+
+  return res.length === 0 ? [-1] : res;
+};
+
 console.log(solution(5, 555)); // [5, 50, 55, 500, 505, 550, 555]
 console.log(solution(10, 20)); // [-1]

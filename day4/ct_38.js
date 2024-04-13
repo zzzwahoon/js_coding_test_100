@@ -32,6 +32,7 @@
 // | - | -      | [1, 2, 3] |
 // - 따라서 [1, 2, 3]을 return 합니다.
 
+// for 
 const solution = arr => {
   let stk = [];
   for (let i = 0; i < arr.length; i++) {
@@ -45,4 +46,39 @@ const solution = arr => {
   return stk;
 };
 
+// while
+const solution_2 = arr => {
+  const stk = [];
+  let i = 0;
+
+  while (i < arr.length) {
+    if (stk.length === 0) {
+      stk.push(arr[i]);
+      i += 1;
+    } else if (stk.at(-1) < arr[i]) {
+      stk.push(arr[i]);
+      i += 1;
+    } else {
+      stk.pop();
+    }
+  }
+
+  return stk;
+};
+
+const solution_3 = arr => {
+  const stk = [];
+  let i = 0;
+
+  while (i < arr.length) {
+    if (stk.length === 0 || stk.at(-1) < arr[i]) {
+      stk.push(arr[i]);
+      i += 1;
+    } else {
+      stk.pop();
+    }
+  }
+
+  return stk;
+};
 console.log(solution([1, 4, 2, 5, 3])); // [1, 2, 3]

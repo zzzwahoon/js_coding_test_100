@@ -84,6 +84,51 @@ const solution = arr => {
     }
 };
 
+const solution_2 = arr => {
+  const stk = [];
+  let i = 0;
+
+	while (i < arr.length) {
+    if (stk.length === 0 || stk.at(-1) !== arr[i]) {
+      stk.push(arr[i]);
+    } else {
+      stk.pop();
+    }
+		i += 1;
+  }
+
+  return stk.length === 0 ? [-1] : stk;
+};
+
+const solution_3 = arr => {
+  const stk = [];
+
+  for (const n of arr) {
+    if (stk.length === 0 || stk.at(-1) !== n) {
+      stk.push(n);
+    } else {
+      stk.pop();
+    }
+  }
+
+  return stk.length === 0 ? [-1] : stk;
+};
+
+const solution_4 = arr => {
+  const stk = [];
+
+  for (const n of arr) {
+    // if (stk.length === 0 || stk.at(-1) !== n) {
+    // stk.length === 0인 경우 stk.at(-1)는 undefined
+		if (stk.at(-1) !== n) {
+      stk.push(n);
+    } else {
+      stk.pop();
+    }
+  }
+
+  return stk.length === 0 ? [-1] : stk;
+};
 console.log(solution([0, 1, 1, 1, 0])); // [0, 1, 0]
 console.log(solution([0, 1, 0, 1, 0])); // [0, 1, 0, 1, 0]
 console.log(solution([0, 1, 1, 0])); // [-1]

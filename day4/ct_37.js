@@ -28,6 +28,35 @@ const solution = (arr, intervals) => {
   return (arr.slice(firstInterval[0],firstInterval[1] + 1)).concat(arr.slice(secondInterval[0],secondInterval[1] + 1));
 };
 
+// slice 
+const solution_2 = (arr, intervals) => {
+  const res = [];
+
+  // for (let i = 0; i < intervals.length; i++) {
+  //   const [s, e] = intervals[i];
+  //   res.push(...arr.slice(s, e + 1));
+  // }
+
+  for (const [s, e] of intervals) {
+    res.push(...arr.slice(s, e + 1));
+  }
+
+  return res;
+};
+
+// map ⇒ flat
+const solution_3 = (arr, intervals) => intervals.map(([s, e]) => arr.slice(s, e + 1)).flat();
+
+// flatMap
+const solution_4 = (arr, intervals) => intervals.flatMap(([s, e]) => arr.slice(s, e + 1));
+
+// TC=O(n), SC=O(n)
+const solution_5 = (arr, intervals) => {
+  const [[s1, e1], [s2, e2]] = intervals;
+  return [...arr.slice(s1, e1 + 1), ...arr.slice(s2, e2 + 1)];
+};
+
+
 // prettier-ignore
 console.log(solution([1, 2, 3, 4, 5], [[1, 3], [0, 4]]));
 // [2, 3, 4, 1, 2, 3, 4, 5]

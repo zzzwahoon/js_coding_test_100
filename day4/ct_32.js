@@ -30,7 +30,18 @@ const solution = arr => {
   return res;
 };
 
+// TC=O(n),SC=O(1)
 const solution_2 = arr => arr.reverse();
+
+// TC=O(n),SC=O(n)
+const solution_3 = nums => nums.toReversed();
+
+// TC ⇒ O(n), SC ⇒ O(n)
+const solution_4 = arr => {
+  const res = [];
+  for (let i = arr.length - 1; i >= 0; i--) res.push(arr[i]);
+  return res;
+};
 
 console.log(solution([1, 2, 3, 4, 5])); // [5, 4, 3, 2, 1]
 console.log(solution([1, 1, 1, 1, 1, 2])); // [2, 1, 1, 1, 1, 1]
@@ -38,3 +49,6 @@ console.log(solution([1, 0, 1, 1, 1, 3, 5])); // [5, 3, 1, 1, 1, 0, 1]
 console.log(solution_2([1, 2, 3, 4, 5])); // [5, 4, 3, 2, 1]
 console.log(solution_2([1, 1, 1, 1, 1, 2])); // [2, 1, 1, 1, 1, 1]
 console.log(solution_2([1, 0, 1, 1, 1, 3, 5])); // [5, 3, 1, 1, 1, 0, 1]
+console.log(solution_3([1, 2, 3, 4, 5])); // [5, 4, 3, 2, 1]
+console.log(solution_3([1, 1, 1, 1, 1, 2])); // [2, 1, 1, 1, 1, 1]
+console.log(solution_3([1, 0, 1, 1, 1, 3, 5])); // [5, 3, 1, 1, 1, 0, 1]

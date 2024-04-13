@@ -20,8 +20,24 @@
 // 입출력 예 #2
 // - [1, 3, 5]의 1번째 인덱스 3부터 2번째 인덱스 5까지 자른 [3, 5]를 return 합니다.
 
+// Imperative
+const solution_2 = (nums, num1, num2) => {
+  const res = [];
+
+  for (let i = num1; i <= num2; i++) {
+    res.push(nums[i]);
+  }
+
+  return res;
+};
+
+// Functional
 const solution = (nums, num1, num2) => nums.slice(num1, num2 + 1)
 // num2 + 1을 지정하는 이유는 num2까지 갔을때 num2는 포함이 되지 않기 때문
 
+
+
+console.log(solution_2([1, 2, 3, 4, 5], 1, 3)); // [2, 3, 4]
+console.log(solution_2([1, 3, 5], 1, 2)); // [3, 5]
 console.log(solution([1, 2, 3, 4, 5], 1, 3)); // [2, 3, 4]
 console.log(solution([1, 3, 5], 1, 2)); // [3, 5]

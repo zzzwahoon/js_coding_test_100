@@ -19,6 +19,7 @@
 // 입출력 예 #2
 // - 1 이상 15 이하의 5의 배수는 5, 10, 15 이므로 [5, 10, 15]를 return 합니다.
 
+// Imperative
 const solution = (n, k) => {
   const arr = [];
   for (let i = 1; i <= n; i++) {
@@ -29,5 +30,13 @@ const solution = (n, k) => {
   return arr;
 };
 
+// Functional
+const solution_2 = (n, k) => Array.from({ length: n }, (_, i) => i + 1).filter(n => n % k === 0);
+const solution_3 = (n, k) => Array.from({ length: n / k }, (_, i) => (i + 1) * k);  // n 이하의 정수 중에 k의 배수는 n / k 개 존재한다.
+
 console.log(solution(10, 3)); // [3, 6, 9]
 console.log(solution(15, 5)); // [5, 10, 15]
+console.log(solution_2(10, 3)); // [3, 6, 9]
+console.log(solution_2(15, 5)); // [5, 10, 15]
+console.log(solution_3(10, 3)); // [3, 6, 9]
+console.log(solution_3(15, 5)); // [5, 10, 15]
