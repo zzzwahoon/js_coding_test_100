@@ -35,7 +35,28 @@ const solution = (nums, divisor) => {
   return res.length === 0 ? [-1] : res.sort((a, b) => a - b);
 };
 
+const solution_2 = (nums, divisor) => {
+  const res = [];
+
+  for (const n of nums) {
+    if (n % divisor === 0) res.push(n);
+  }
+
+  return res.length === 0 ? [-1] : res.sort((a, b) => a - b);
+}
+
+// 함수형
+const solution_3 = (nums, divisor) => {
+  const filtered = nums.filter(n => n % divisor === 0);
+  return filtered.length === 0 ? [-1] : filtered;
+}
 
 console.log(solution([5, 9, 7, 10], 5)); // [5, 10]
 console.log(solution([2, 36, 1, 3], 1)); // [1, 2, 3, 36]
 console.log(solution([3, 2, 6], 10)); // [-1]
+console.log(solution_2([5, 9, 7, 10], 5)); // [5, 10]
+console.log(solution_2([2, 36, 1, 3], 1)); // [1, 2, 3, 36]
+console.log(solution_2([3, 2, 6], 10)); // [-1]
+console.log(solution_3([5, 9, 7, 10], 5)); // [5, 10]
+console.log(solution_3([2, 36, 1, 3], 1)); // [1, 2, 3, 36]
+console.log(solution_3([3, 2, 6], 10)); // [-1]

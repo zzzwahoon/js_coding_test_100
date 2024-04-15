@@ -20,8 +20,59 @@
 // - 홀수 번째 원소들의 합은 -1 + 5 + 3 = 7, 짝수 번째 원소들의 합은 2 + 6 = 8 이므로 8을 return합니다.
 
 const solution = nums => {
-  
+  let sum1 = 0;
+  let sum2 = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (i % 2 === 0 ) sum1 += nums[i];
+    else sum2 += nums[i];
+  }
+
+  // return sum1 > sum2 ? sum1 : sum2;
+  return Math.max(sum1, sum2);
 };
+
+// functional
+const solution_2 = nums => {
+  const sum1 = nums.reduce((sum, n, i) => {
+    if (i % 2 === 0) sum += n;
+    return sum;
+  }, 0);
+
+  const sum2 = nums.reduce((sum, n, i) => {
+    if (i % 2 !== 0) sum += n;
+    return sum;
+  }, 0);
+
+  return Math.max(sum1, sum2);
+};
+
+const solution_3 = nums => {
+  const sum = nums.reduce(
+    (acc, n, i) => {
+      // if (i % 2 !=== 0) acc[0] += n;
+      // else acc[1] += n;
+      acc[i % 2] += n;
+      return acc;
+    }, [0, 0]);
+  
+    return Math.max(...sum);
+}
+
+const solution_4 = nums => {
+  const sum = nums.reduce(([s1, s2], n, i) => (i % 2 ? [s1 + n, s2] : [s1, s2 + n]), [0, 0]);
+  
+    return Math.max(...sum);
+}
+
+
+
 
 console.log(solution([4, 2, 6, 1, 7, 6])); // 17
 console.log(solution([-1, 2, 5, 6, 3])); // 8
+console.log(solution_2([4, 2, 6, 1, 7, 6])); // 17
+console.log(solution_2([-1, 2, 5, 6, 3])); // 8
+console.log(solution_3([4, 2, 6, 1, 7, 6])); // 17
+console.log(solution_3([-1, 2, 5, 6, 3])); // 8
+console.log(solution_4([4, 2, 6, 1, 7, 6])); // 17
+console.log(solution_4([-1, 2, 5, 6, 3])); // 8
