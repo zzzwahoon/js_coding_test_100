@@ -30,6 +30,8 @@ const solution = str => {
 
 const solution_2 = str => Array.from(str, (_, i) => str.slice(i)).sort();
 
+
+
 console.log(solution('banana')); // ['a', 'ana', 'anana', 'banana', 'na', 'nana']
 console.log(solution('programmers')); // ['ammers', 'ers', 'grammers', 'mers', 'mmers', 'ogrammers', 'programmers', 'rammers', 'rogrammers', 'rs', 's']
 console.log(solution_2('banana')); // ['a', 'ana', 'anana', 'banana', 'na', 'nana']

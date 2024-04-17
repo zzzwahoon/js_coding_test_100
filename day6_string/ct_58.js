@@ -31,6 +31,10 @@ const solution = (str, indices) => {
 
 const solution_2 = (str, indices) => indices.map(index => str[index]).join('');
 
+///////////////////
+
+const solution_3 = (str, indices) => indices.map(index => str[index]).join('');
+
 console.log(solution('cvsgiorszzzmrpaqpe', [16, 6, 5, 3, 12, 14, 11, 11, 17, 12, 7]));
 // 'programmers'
 console.log(solution('zpiaz', [1, 2, 0, 0, 3]));
@@ -38,4 +42,8 @@ console.log(solution('zpiaz', [1, 2, 0, 0, 3]));
 console.log(solution_2('cvsgiorszzzmrpaqpe', [16, 6, 5, 3, 12, 14, 11, 11, 17, 12, 7]));
 // 'programmers'
 console.log(solution_2('zpiaz', [1, 2, 0, 0, 3]));
+// 'pizza'
+console.log(solution_3('cvsgiorszzzmrpaqpe', [16, 6, 5, 3, 12, 14, 11, 11, 17, 12, 7]));
+// 'programmers'
+console.log(solution_3('zpiaz', [1, 2, 0, 0, 3]));
 // 'pizza'

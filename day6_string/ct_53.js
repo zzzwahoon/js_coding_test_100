@@ -16,15 +16,14 @@
 const solution = (str1, str2) => {
   let res = '';
   for (let i = 0; i < str1.length; i++) {
-    res += str1[i];
-    res += str2[i];
+    res += str1[i] + str2[i];
   }
   return res
 };
 
-const solution_2 = (str1, str2) => {
-  return [...str1].reduce((acc, char, i) => acc + char + str2[i], '');
-};
+const solution_2 = (str1, str2) => [...str1].reduce((acc, char, i) => acc + char + str2[i], '');
+
+
 
 console.log(solution('aaaaa', 'bbbbb')); // 'ababababab'
 console.log(solution_2('aaaaa', 'bbbbb')); // 'ababababab'

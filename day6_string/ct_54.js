@@ -29,8 +29,11 @@ const solution = (str, overwriteStr, s) => {
 
 const solution_2 = (str, overwriteStr, s) => `${str.slice(0, s)}${overwriteStr}${str.slice(s + overwriteStr.length)}`
 
+const solution_3 = (str, overwriteStr, s) => str.slice(0, s) + overwriteStr + str.slice(s + overwriteStr.length);
 
 console.log(solution('He11oWor1d', 'lloWorl', 2)); // 'HelloWorld'
 console.log(solution('Program29b8UYP', 'merS123', 7)); // 'ProgrammerS123'
 console.log(solution_2('He11oWor1d', 'lloWorl', 2)); // 'HelloWorld'
 console.log(solution_2('Program29b8UYP', 'merS123', 7)); // 'ProgrammerS123'
+console.log(solution_3('He11oWor1d', 'lloWorl', 2)); // 'HelloWorld'
+console.log(solution_3('Program29b8UYP', 'merS123', 7)); // 'ProgrammerS123'

@@ -27,5 +27,8 @@ const solution_2 = arr => {
   return res;
 };
 
+const solution_3 = arr => arr.join(); // 'a' + '' + 'b' + '' + 'c'
+
 console.log(solution(['a', 'b', 'c'])); // 'abc'
 console.log(solution_2(['a', 'b', 'c'])); // 'abc'
+console.log(solution_3(['a', 'b', 'c'])); // 'abc'

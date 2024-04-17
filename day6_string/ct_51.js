@@ -19,9 +19,24 @@
 // 입출력 예 #2
 // - "8542"를 정수로 바꾸면 8542입니다.
 
-const solution = nStr => {
-	return parseInt(nStr, 10);
-};
+// string => number
+const solution = nStr => parseInt(nStr, 10);
+const solution_2 = nStr => +nStr; // 추천
+const solution_3 = nStr => Number(nStr);  // 추천
+const solution_4 = nStr => nStr * 1;
+
+// number => string
+const n = 123;
 
 console.log(solution('10')); // 10
 console.log(solution('8542')); // 8542
+console.log(solution_2('10')); // 10
+console.log(solution_2('8542')); // 8542
+console.log(solution_3('10')); // 10
+console.log(solution_3('8542')); // 8542
+console.log(solution_4('10')); // 10
+console.log(solution_4('8542')); // 8542
+
+console.log(n + '');
+console.log(String(n));
+console.log(toString(n));

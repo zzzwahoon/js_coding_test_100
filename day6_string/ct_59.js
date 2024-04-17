@@ -40,5 +40,28 @@ const solution_2 = (str, indices) => {
     return characters.join('');
 };
 
+//////////////////////
+// 더하는방법
+const solution_3 = (str, indices) => {
+  let res = ''
+  for (let i = 0; i < str.length; i ++) {
+    if (!indices.includes(i)) res += str[i];
+  }
+  return res;
+}
+
+const solution_4 = (str, indices) => [...str].filter((_, i) => !indices.includes(i)).join('')
+
+//빼는 방법
+const solution_5 = (str, indices) => {
+  for (const i of indices.sort((a, b) => b - a)) {
+    str = str.slice(0, i) + str.slice(i + 1);
+  }
+
+  return str;
+}
 console.log(solution('apporoograpemmemprs', [1, 16, 6, 15, 0, 10, 11, 3])); // 'programmers'
 console.log(solution_2('apporoograpemmemprs', [1, 16, 6, 15, 0, 10, 11, 3])); // 'programmers'
+console.log(solution_3('apporoograpemmemprs', [1, 16, 6, 15, 0, 10, 11, 3])); // 'programmers'
+console.log(solution_4('apporoograpemmemprs', [1, 16, 6, 15, 0, 10, 11, 3])); // 'programmers'
+console.log(solution_5('apporoograpemmemprs', [1, 16, 6, 15, 0, 10, 11, 3])); // 'programmers'
