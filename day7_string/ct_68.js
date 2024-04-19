@@ -36,6 +36,27 @@ const solution = str => {
 
 };
 
+const solution_2 = str => {
+  const res = [];
+  for (let i = 0; i < str.length; i++) {
+    // if (!Number.isNaN(+str[i])) res.push(+str[i]);
+    if (Number.isInteger(+str[i])) res.push(+str[i]);
+  }
+  return res.sort();
+}
+
+const solution_3 = str => 
+  [...str]
+    .filter(c => Number.isInteger(+c))
+    .map(Number)
+    .sort();
+
 console.log(solution('hi12392')); // [1, 2, 2, 3, 9]
 console.log(solution('p2o4i8gj2')); // [2, 2, 4, 8]
 console.log(solution('abcde0')); // [0]
+console.log(solution_2('hi12392')); // [1, 2, 2, 3, 9]
+console.log(solution_2('p2o4i8gj2')); // [2, 2, 4, 8]
+console.log(solution_2('abcde0')); // [0]
+console.log(solution_3('hi12392')); // [1, 2, 2, 3, 9]
+console.log(solution_3('p2o4i8gj2')); // [2, 2, 4, 8]
+console.log(solution_3('abcde0')); // [0]

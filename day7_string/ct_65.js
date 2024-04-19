@@ -9,10 +9,10 @@
 // - `str`의 맨 앞과 맨 뒤에 글자는 공백이 아닙니다.
 
 // ### 입출력 예
-// | str | result |
-// | --- | --- |
-// | "i love you" | ["i", "love", "you"] |
-// | "programmers" | ["programmers"] |
+// | str           | result               |
+// | ------------- | -------------------- |
+// | "i love you"  | ["i", "love", "you"] |
+// | "programmers" | ["programmers"]      |
 
 // ### 입출력 예 설명
 // 입출력 예 #1

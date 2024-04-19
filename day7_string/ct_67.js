@@ -10,10 +10,10 @@
 // - `num1` ≠ `num2`
 
 // ### 입출력 예
-// | str | num1 | num2 | result |
-// | --- | --- | --- | --- |
-// | "hello" | 1 | 2 | "hlelo" |
-// | "I love you" | 3 | 6 | "I l veoyou" |
+// | str          | num1 | num2 | result       |
+// | ------------ | ---- | ---- | ------------ |
+// | "hello"      | 1    | 2    | "hlelo"      |
+// | "I love you" | 3    | 6    | "I l veoyou" |
 
 // ### 입출력 예 설명
 // 입출력 예 #1
@@ -27,5 +27,18 @@ const solution = (str, num1, num2) => {
   return arr.join('');
 };
 
+const solution_2 = (str, num1, num2) => {
+  let res = '';
+  for (let i = 0; i < str.length; i++) {
+    // if (i === num1) res += str[num2]
+    // else if (i === num2) res += str[num1]
+    // else res += str[i]
+    res += str[i === num1 ? num2 : i === num2 ? num1 : i];
+  }
+  return res;
+}
+
 console.log(solution('hello', 1, 2)); // 'hlelo'
 console.log(solution('I love you', 3, 6)); // 'I l veoyou'
+console.log(solution_2('hello', 1, 2)); // 'hlelo'
+console.log(solution_2('I love you', 3, 6)); // 'I l veoyou'

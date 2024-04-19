@@ -11,9 +11,9 @@
 // - 중복된 문자 중 가장 앞에 있는 문자를 남깁니다.
 
 // ### 입출력 예
-// | str | result |
-// | --- | --- |
-// | "people" | "peol" |
+// | str                | result        |
+// | ------------------ | ------------- |
+// | "people"           | "peol"        |
 // | "We are the world" | "We arthwold" |
 
 // ### 입출력 예 설명
@@ -45,7 +45,31 @@ const solution_2 = str => {
   return uniqueChars.join('');
 };
 
+////////////////////////
+
+const solution_3 = str => {
+  let res = '';
+
+  for (let i = 0; i < str.length; i++) {
+    if (!res.includes(str[i])) res += str[i];
+  }
+  return res;
+}
+
+const solution_4 = str => [...str].filter((c, i) => str.indexOf(c) === i).join('');
+
+const solution_5 = str =>[...new Set([...str])].join('');
+const solution_6 = str =>[...new Set(str)].join('');
+
 console.log(solution('people')); // 'peol'
 console.log(solution('We are the world')); // 'We arthwold'
 console.log(solution_2('people')); // 'peol'
 console.log(solution_2('We are the world')); // 'We arthwold'
+console.log(solution_3('people')); // 'peol'
+console.log(solution_3('We are the world')); // 'We arthwold'
+console.log(solution_4('people')); // 'peol'
+console.log(solution_4('We are the world')); // 'We arthwold'
+console.log(solution_5('people')); // 'peol'
+console.log(solution_5('We are the world')); // 'We arthwold'
+console.log(solution_6('people')); // 'peol'
+console.log(solution_6('We are the world')); // 'We arthwold'

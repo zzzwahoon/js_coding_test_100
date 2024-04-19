@@ -10,10 +10,10 @@
 // - `str`에는 단어가 하나 이상 존재합니다.
 
 // ### 입출력 예
-// | str | result |
-// | --- | --- |
-// | " i    love  you" | ["i", "love", "you"] |
-// | "    programmers  " | ["programmers"] |
+// | str                 | result               |
+// | ------------------- | -------------------- |
+// | " i    love  you"   | ["i", "love", "you"] |
+// | "    programmers  " | ["programmers"]      |
 
 // ### 입출력 예 설명
 // 입출력 예 #1
@@ -42,10 +42,20 @@ const solution = str => {
   return result;
 }
 
-const solution_2 = str => str.trim().split(/\s+/);
+const solution_2 = str => str.trim().split(/\s+/g);
 // '\s': 하나 이상의 공백문자
 // '+': 하나 이상의 해당 문자가 연속으로 나타남
 // trim(): 문자열의 앞뒤 공백을 제거한후 진행
 
+const solution_3 = str => str.split(' ').filter(str => Boolean(str));
+const solution_4 = str => str.split(' ').filter(Boolean);
+
+
 console.log(solution(' i    love  you')); // ["i", "love", "you"]
 console.log(solution('    programmers  ')); // ["programmers"]
+console.log(solution_2(' i    love  you')); // ["i", "love", "you"]
+console.log(solution_2('    programmers  ')); // ["programmers"]
+console.log(solution_3(' i    love  you')); // ["i", "love", "you"]
+console.log(solution_3('    programmers  ')); // ["programmers"]
+console.log(solution_4(' i    love  you')); // ["i", "love", "you"]
+console.log(solution_4('    programmers  ')); // ["programmers"]

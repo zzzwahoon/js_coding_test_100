@@ -9,9 +9,9 @@
 //     - `str`은 알파벳 소문자로 이루어진 문자열입니다.
 
 // ### 입출력 예
-// | str | result |
-// | --- | --- |
-// | "axbxcxdx" | ["a","b","c","d"] |
+// | str             | result                  |
+// | --------------- | ----------------------- |
+// | "axbxcxdx"      | ["a","b","c","d"]       |
 // | "dxccxbbbxaaaa" | ["aaaa","bbb","cc","d"] |
 
 // ### 입출력 예 설명
@@ -23,5 +23,9 @@
 const solution = str => str.split('x').filter(part => part).sort();
 // part => part는 각 부분 문자열 part가 참 같은 값(즉, 비어 있지 않은 문자열)인 경우에만 해당 요소를 새 배열에 포함시키라는 조건
 
+const solution_2 = str => str.split('x').filter(Boolean).sort();
+
 console.log(solution("axbxcxdx")); // ["a","b","c","d"]
 console.log(solution('dxccxbbbxaaaa')); // ["aaaa","bbb","cc","d"]
+console.log(solution_2("axbxcxdx")); // ["a","b","c","d"]
+console.log(solution_2('dxccxbbbxaaaa')); // ["aaaa","bbb","cc","d"]

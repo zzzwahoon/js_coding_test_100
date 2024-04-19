@@ -21,11 +21,14 @@
 // 입출력 예 #3
 // - "Python"를 모두 소문자로 바꾸면 "python"이고 이를 알파벳 순으로 정렬하면 "hnopty"입니다.
 
-const solution = str => {
-  let arr = str.toLowerCase().split('');
-  return arr.sort().join('');
-};
+const solution = str => str.toLowerCase().split('').sort().join('');
+const solution_2 = str => [...str.toLowerCase()].sort().join('');
+
 
 console.log(solution('Bcad')); // "abcd"
 console.log(solution('heLLo')); // "ehllo"
 console.log(solution('Python')); // "hnopty"
+
+console.log(solution_2('Bcad')); // "abcd"
+console.log(solution_2('heLLo')); // "ehllo"
+console.log(solution_2('Python')); // "hnopty"

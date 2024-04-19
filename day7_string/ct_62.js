@@ -8,10 +8,10 @@
 // - 0 ≤ `nums`의 원소 ≤ 100,000
 
 // ### 입출력 예
-// | nums | result |
-// | --- | --- |
-// | [7, 77, 17] | 4 |
-// | [10, 29] | 0 |
+// | nums        | result |
+// | ----------- | ------ |
+// | [7, 77, 17] | 4      |
+// | [10, 29]    | 0      |
 
 // ### 입출력 예 설명
 // 입출력 예 #1
@@ -33,5 +33,23 @@ const solution = nums => {
     return count;
 };
 
+const solution_2 = nums => {
+  let count = 0;
+  for (const c of nums.join('')) {
+    if (c === '7') count += 1;
+  }
+  return count;
+}
+
+const solution_3 = nums => [...nums.join('')].filter(c => c === '7').length;
+
+const solution_4 = nums => nums.join('').match(/7/g).length;
+
 console.log(solution([7, 77, 17])); // 4
 console.log(solution([10, 29])); // 0
+console.log(solution_2([7, 77, 17])); // 4
+console.log(solution_2([10, 29])); // 0
+console.log(solution_3([7, 77, 17])); // 4
+console.log(solution_3([10, 29])); // 0
+console.log(solution_4([7, 77, 17])); // 4
+console.log(solution_4([10, 29])); // 0

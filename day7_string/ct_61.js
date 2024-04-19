@@ -11,7 +11,16 @@
 
 const solution = str => [...str];
 
+const solution_2 = str => str.split('');
+const solution_3 = str => Array.from(str);
+
 
 console.log(solution('Hello world'));
 // ["H", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
 console.log(solution('')); // []
+console.log(solution_2('Hello world'));
+// ["H", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+console.log(solution_2('')); // []
+console.log(solution_3('Hello world'));
+// ["H", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+console.log(solution_3('')); // []
