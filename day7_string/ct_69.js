@@ -23,6 +23,7 @@
 
 const solution = str => str.toLowerCase().split('').sort().join('');
 const solution_2 = str => [...str.toLowerCase()].sort().join('');
+const solution_3 = str => Array.from(str.toLowerCase()).sort().join('');
 
 
 console.log(solution('Bcad')); // "abcd"
@@ -32,3 +33,7 @@ console.log(solution('Python')); // "hnopty"
 console.log(solution_2('Bcad')); // "abcd"
 console.log(solution_2('heLLo')); // "ehllo"
 console.log(solution_2('Python')); // "hnopty"
+
+console.log(solution_3('Bcad')); // "abcd"
+console.log(solution_3('heLLo')); // "ehllo"
+console.log(solution_3('Python')); // "hnopty"
