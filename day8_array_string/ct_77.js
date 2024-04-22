@@ -25,6 +25,11 @@ const solution = (str, part) => {
   const index = str.lastIndexOf(part);
   return str.slice(0, index + part.length);
 }
+const solution_2 = (str, part) => str.slice(0, str.lastIndexOf(part) + part.length);
+
 
 console.log(solution('AbCdEFG', 'dE')); // 'AbCdE'
 console.log(solution('AAAAaaaa', 'a')); // 'AAAAaaaa'
+
+console.log(solution_2('AbCdEFG', 'dE')); // 'AbCdE'
+console.log(solution_2('AAAAaaaa', 'a')); // 'AAAAaaaa'

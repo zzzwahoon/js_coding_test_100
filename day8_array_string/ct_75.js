@@ -35,8 +35,32 @@ const solution = (strings, parts) => {
     return res;
 };
 
+////////
+
+const solution_2 = (strings, parts) => {
+  let res = '';
+  for (let i = 0; i < strings.length; i++) {
+    res += strings[i].slice(parts[i][0], parts[i][1] + 1)
+  }
+  return res;
+}
+
+const solution_3 = (strings, parts) => 
+  // strings.map((str, i) => str.slice(parts[i][0], parts[i][1] + 1)).join('');
+  parts.map(([s, e], i) => strings[i].slice(s, e + 1)).join('');
+  
+
+
 // prettier-ignore
 console.log(solution(
+  ['progressive', 'hamburger', 'hammer', 'ahocorasick'],
+	[[0, 4], [1, 2], [3, 5], [7, 7]]
+)); // "programmers"
+console.log(solution_2(
+  ['progressive', 'hamburger', 'hammer', 'ahocorasick'],
+	[[0, 4], [1, 2], [3, 5], [7, 7]]
+)); // "programmers"
+console.log(solution_3(
   ['progressive', 'hamburger', 'hammer', 'ahocorasick'],
 	[[0, 4], [1, 2], [3, 5], [7, 7]]
 )); // "programmers"

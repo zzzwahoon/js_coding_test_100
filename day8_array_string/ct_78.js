@@ -18,5 +18,9 @@ const sumMatrix = matrix => {
   return sum;
 };
 
+const sumMatrix_2 = matrix => matrix.flat().reduce((sum, n) => sum + n, 0);
+
 console.log(sumMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])); // 45
 console.log(sumMatrix([])); // 0
+console.log(sumMatrix_2([[1, 2, 3], [4, 5, 6], [7, 8, 9]])); // 45
+console.log(sumMatrix_2([])); // 0

@@ -24,17 +24,20 @@
 
 const solution = (str, target) => {
   if (str.includes(target)) {
-    return '1';
+    return 1;
   }
   else {
-    return '0';
+    return 0;
   }
 };
 
-const solution_2 = (str, target) => str.includes(target) ? '1' : '0';
+const solution_2 = (str, target) => str.includes(target) ? 1 : 0;
+const solution_3 = (str, target) => +str.includes(target);
 
 
 console.log(solution('banana', 'ana')); // 1
 console.log(solution('banana', 'wxyz')); // 0
 console.log(solution_2('banana', 'ana')); // 1
 console.log(solution_2('banana', 'wxyz')); // 0
+console.log(solution_3('banana', 'ana')); // 1
+console.log(solution_3('banana', 'wxyz')); // 0

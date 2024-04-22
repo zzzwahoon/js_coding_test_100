@@ -21,9 +21,41 @@
 // - "ABAB"에서 "A"와 "B"를 서로 바꾸면 "BABA"입니다. 여기에는 부분문자열 "BABA"가 없기 때문에 0을 return 합니다.
 
 const solution = (str, part) => {
+  let replacedStr = '';
+  for (let char of str) {
+    if (char === 'A') {
+      replacedStr += 'B';
+    } else {
+      replacedStr += 'A';
+    }
+  }
+  return replacedStr.includes(part) ? '1' : '0';
+};
+
+const solution_2 = (str, part) => {
+  let replacedStr = '';
+  for (let char of str) {
+    replacedStr += char === 'A' ? 'B' : 'A';
+  }
+  return replacedStr.includes(part) ? '1' : '0';
+};
+
+const solution_3 = (str, part) => 
+  +[...str]
+    .map(c => (c === 'A' ? 'B' : 'A'))
+    .join('')
+    .includes(part);
+
+const solution_4 = (str, part) => {
 	const replacedStr = str.replace(/A/g, "temp").replace(/B/g, "A").replace(/temp/g, "B");
   return replacedStr.includes(part) ? '1' : '0';
 };
 
 console.log(solution('ABBAA', 'AABB')); // 1
 console.log(solution('ABAB', 'ABAB')); // 0
+console.log(solution_2('ABBAA', 'AABB')); // 1
+console.log(solution_2('ABAB', 'ABAB')); // 0
+console.log(solution_3('ABBAA', 'AABB')); // 1
+console.log(solution_3('ABAB', 'ABAB')); // 0
+console.log(solution_4('ABBAA', 'AABB')); // 1
+console.log(solution_4('ABAB', 'ABAB')); // 0

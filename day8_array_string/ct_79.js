@@ -23,8 +23,36 @@
 // - ["ayaye", "uuuma", "ye", "yemawoo", "ayaa"]에서 발음할 수 있는 것은 "aya" + "ye" = "ayaye", "ye", "ye" + "ma" + "woo" = "yemawoo"로 3개입니다. 따라서 3을 return합니다.
 
 const solution = babbling => {
-  // do something
+  let res = [];
+  for (const word of babbling) {
+    res.push(word
+      .replace('aya', ' ')
+      .replace('ye', ' ')
+      .replace('woo', ' ')
+      .replace('ma', ' ')
+    );
+  }
+  return res.filter(str => str.trim() === '').length;
 };
+
+const solution_2 = babbling => {
+  let count = 0;
+  for (const word of babbling) {
+    if (word.replace(/(aya|ye|ma|woo)/g, '') === '') count += 1;
+  }
+  return count
+}
+
+const solution_3 = babbling => babbling.map(word => word.replace(/(aya|ye|ma|woo)/g, '')).filter(word => word === '').length;
+
+const solution_4 = babbling =>
+  babbling.filter(word => word.replace(/(aya|ye|ma|woo)/g, '') === '').length;
 
 console.log(solution(['aya', 'yee', 'u', 'maa', 'wyeoo'])); // 1
 console.log(solution(['ayaye', 'uuuma', 'ye', 'yemawoo', 'ayaa'])); // 3
+console.log(solution_2(['aya', 'yee', 'u', 'maa', 'wyeoo'])); // 1
+console.log(solution_2(['ayaye', 'uuuma', 'ye', 'yemawoo', 'ayaa'])); // 3
+console.log(solution_3(['aya', 'yee', 'u', 'maa', 'wyeoo'])); // 1
+console.log(solution_3(['ayaye', 'uuuma', 'ye', 'yemawoo', 'ayaa'])); // 3
+console.log(solution_4(['aya', 'yee', 'u', 'maa', 'wyeoo'])); // 1
+console.log(solution_4(['ayaye', 'uuuma', 'ye', 'yemawoo', 'ayaa'])); // 3

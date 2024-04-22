@@ -19,6 +19,34 @@ const solution = str => {
   return `${Math.min(...res)} ${Math.max(...res)}`
 };
 
+const solution_2 = str => {
+  const max = Math.max(...str.split(' '));
+  const min = Math.min(...str.split(' '));
+  return `${min} ${max}`
+}
+
+const solution_3 = str => {
+  const res = str.split(' ');
+  return `${Math.min(...res)} ${Math.max(...res)}`
+}
+
 console.log(solution('1 2 3 4')); // '1 4'
 console.log(solution('-1 -2 -3 -4')); // '-4 -1'
 console.log(solution('-1 -1')); // '-1 -1'
+console.log(solution_2('1 2 3 4')); // '1 4'
+console.log(solution_2('-1 -2 -3 -4')); // '-4 -1'
+console.log(solution_2('-1 -1')); // '-1 -1'
+console.log(solution_3('10 2')); // '-1 -1'
+
+const arr = [2, 1, 3, 4];
+
+const max = arr => {
+  let _max = -Infinity;
+
+  for (const n of arr) {
+    if (n > _max) _max = n;
+  }
+  return _max;
+}
+
+console.log(max(arr));

@@ -9,10 +9,10 @@
 // - `str`은 알파벳 소문자, 대문자, 숫자로 이루어져 있습니다.
 
 // ### 입출력 예
-// | str | n | result |
-// | --- | --- | --- |
-// | "abc1Addfggg4556b" | 6 | ["abc1Ad", "dfggg4", "556b"] |
-// | "abcdef123" | 3 | ["abc", "def", "123"] |
+// | str                | n   | result                       |
+// | ------------------ | --- | ---------------------------- |
+// | "abc1Addfggg4556b" | 6   | ["abc1Ad", "dfggg4", "556b"] |
+// | "abcdef123"        | 3   | ["abc", "def", "123"]        |
 
 // ### 입출력 예 설명
 // 입출력 예 #1
@@ -31,5 +31,17 @@ const solution = (str, n) => {
   return res;
 };
 
+//////////
+
+const solution_2 = (str, n) => Array.from({length: Math.ceil(str.length / n)}, (_, i) => str.slice(i * n, (i + 1) * n ));
+
+// 정규 표현식
+const solution_3 = (str, n) => str.match(new RegExp(`.{1,${n}}`, 'g'));
+
+
 console.log(solution('abc1Addfggg4556b', 6)); // ["abc1Ad", "dfggg4", "556b"]
 console.log(solution('abcdef123', 3)); // ["abc", "def", "123"]
+console.log(solution_2('abc1Addfggg4556b', 6)); // ["abc1Ad", "dfggg4", "556b"]
+console.log(solution_2('abcdef123', 3)); // ["abc", "def", "123"]
+console.log(solution_3('abc1Addfggg4556b', 6)); // ["abc1Ad", "dfggg4", "556b"]
+console.log(solution_3('abcdef123', 3)); // ["abc", "def", "123"]
