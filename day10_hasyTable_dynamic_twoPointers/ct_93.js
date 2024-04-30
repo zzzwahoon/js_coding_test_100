@@ -9,18 +9,18 @@
 //     - `strings`의 원소들은 알파벳 소문자로 이루어진 문자열입니다.
 
 // ### 입출력 예
-// | strings | result |
-// | --- | --- |
-// | ["a","bc","d","efg","hi"] | 2 |
+// | strings                   | result |
+// | ------------------------- | ------ |
+// | ["a","bc","d","efg","hi"] | 2      |
 
 // ### 입출력 예 설명
 // **입출력 예 #1**
 // - 각 문자열들을 길이에 맞게 그룹으로 묶으면 다음과 같습니다.
 // | 문자열 길이 | 문자열 목록 | 개수 |
-// | --- | --- | --- |
-// | 1 | ["a","d"] | 2 |
-// | 2 | ["bc","hi"] | 2 |
-// | 3 | ["efg"] | 1 |
+// | --- | ----------- | --- |
+// | 1   | ["a","d"]   | 2   |
+// | 2   | ["bc","hi"] | 2   |
+// | 3   | ["efg"]     | 1   |
 // - 개수의 최댓값은 2이므로 2를 return 합니다.
 
 
@@ -47,4 +47,18 @@ const solution = strings => {
     return result;
 };
 
+const solution_2 = strings => {
+  // ['a', 'bc', 'd', 'efg', 'hi'] => {1: 2, 2: 2, 3: 1} => 2
+
+  // key : length, value: count
+  const hash = {};
+
+  for (const str of strings) {
+    hash[str.length] = (hash[str.length] || 0) + 1;
+  }
+
+  return Math.max(...Object.values(hash));
+}
+
 console.log(solution(['a', 'bc', 'd', 'efg', 'hi'])); // 2
+console.log(solution_2(['a', 'bc', 'd', 'efg', 'hi'])); // 2

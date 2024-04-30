@@ -35,8 +35,34 @@ const fib = n => {
       a = b;
       b = c;
   }
+  
   return b;
 };
+const fib_2 = n => {
+  if (n < 2) return n;
+
+  const seq = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    seq.push(seq.at(i - 1) + seq.at(i - 2))
+  }
+
+  return seq.at(-1);
+}
+const fib_3 = n => {
+  if (n < 2) return n;
+
+  let [a, b] = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    [a, b] = [b, a + b];
+  }
+
+  return b;
+}
+
+// O(2^n)
+const fib_4 = n => (n < 2 ? n : fib(n - 1) + fib(n - 2));
 
 console.log(fib(0)); // 0
 console.log(fib(3)); // 2
@@ -44,3 +70,24 @@ console.log(fib(5)); // 5
 console.log(fib(7)); // 13
 console.log(fib(10)); // 55
 console.log(fib(30)); // 832040
+
+console.log(fib_2(0)); // 0
+console.log(fib_2(3)); // 2
+console.log(fib_2(5)); // 5
+console.log(fib_2(7)); // 13
+console.log(fib_2(10)); // 55
+console.log(fib_2(30)); // 832040
+
+console.log(fib_3(0)); // 0
+console.log(fib_3(3)); // 2
+console.log(fib_3(5)); // 5
+console.log(fib_3(7)); // 13
+console.log(fib_3(10)); // 55
+console.log(fib_3(30)); // 832040
+
+console.log(fib_4(0)); // 0
+console.log(fib_4(3)); // 2
+console.log(fib_4(5)); // 5
+console.log(fib_4(7)); // 13
+console.log(fib_4(10)); // 55
+console.log(fib_4(30)); // 832040

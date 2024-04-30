@@ -1,63 +1,98 @@
-// 최빈값 구하기
+// 한 번만 등장한 문자
 
 // ### **문제 설명**
-// 최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 `nums`가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다.
+// 문자열 `str`이 매개변수로 주어집니다. `str`에서 한 번만 등장하는 문자를 사전 순으로 정렬한 문자열을 return 하도록 solution 함수를 완성해보세요. 한 번만 등장하는 문자가 없을 경우 빈 문자열을 return 합니다.
 
 // ### 제한사항
-// - 0 < `nums`의 길이 < 100
-// - 0 ≤ `nums`의 원소 < 1000
+// - 0 < `str`의 길이 < 1,000
+// - `str` 은 소문자로만 이루어져 있습니다.
 
 // ### 입출력 예
-// | nums | result |
+// | str | result |
 // | --- | --- |
-// | [1, 2, 3, 3, 3, 4] | 3 |
-// | [1, 1, 2, 2] | -1 |
-// | [1] | 1 |
+// | "abcabcadc" | "d" |
+// | "abdc" | "abcd" |
+// | "hello" | "eho" |
 
 // ### 입출력 예 설명
 // 입출력 예 #1
-// - [1, 2, 3, 3, 3, 4]에서 1은 1개 2는 1개 3은 3개 4는 1개로 최빈값은 3입니다.
+// - "abcabcadc"에서 하나만 등장하는 문자는 "d"입니다.
 // 입출력 예 #2
-// - [1, 1, 2, 2]에서 1은 2개 2는 2개로 최빈값이 1, 2입니다. 최빈값이 여러 개이므로 -1을 return 합니다.
+// - "abdc"에서 모든 문자가 한 번씩 등장하므로 사전 순으로 정렬한 "abcd"를 return 합니다.
 // 입출력 예 #3
-// - [1]에는 1만 있으므로 최빈값은 1입니다.
+// - "hello"에서 한 번씩 등장한 문자는 "heo"이고 이를 사전 순으로 정렬한 "eho"를 return 합니다.
 
-const solution = nums => {
-  const frequency = {};
-    
-    // 각 숫자의 빈도를 계산
-    nums.forEach(num => {
-        if (frequency[num]) {
-            frequency[num] += 1;
+const solution = str => {
+    const frequency = {};
+
+  // 문자열을 순회하며 각 문자의 빈도를 세기
+    for (const char of str) {
+        if (frequency[char]) {
+            frequency[char] += 1;
         } else {
-            frequency[num] = 1;
-        }
-    });
-
-    // 최대 빈도수 찾기
-    let maxFrequency = 0;
-    for (const key in frequency) {
-        if (frequency[key] > maxFrequency) {
-            maxFrequency = frequency[key];
+            frequency[char] = 1;
         }
     }
 
-    // 최대 빈도수를 갖는 숫자들 찾기
-    const modes = [];
-    for (const key in frequency) {
-        if (frequency[key] === maxFrequency) {
-            modes.push(Number(key));
+    const uniqueChars = [];
+    for (const char in frequency) {
+        if (frequency[char] === 1) {
+            uniqueChars.push(char);
         }
     }
 
-    // 최빈값이 하나인지 여러 개인지 확인
-    if (modes.length === 1) {
-      return modes[0];
-  } else {
-      return -1;
-  }
+    // 필터링된 문자들을 사전 순으로 정렬후 붙이기
+    return uniqueChars.sort().join('');
 };
 
-console.log(solution([1, 2, 3, 3, 3, 4])); // 3
-console.log(solution([1, 1, 2, 2])); // -1
-console.log(solution([1])); // 1
+const solution_2 = str => {
+    let res = '';
+    for (const c of str) {
+        if (str.indexOf(c) === str.lastIndexOf(c)) {
+            res += c;
+        }
+    }
+    return [...res].sort().join('');
+}
+
+const solution_3 = str => {
+    // const hash = {};
+
+    // for (const c of str) {
+    //     hash[c] = (hash[c] || 0) + 1;
+    // }
+
+    const hash = [...str].reduce((acc, c) => {
+        acc[c] = (acc[c] || 0) + 1;
+        return acc;
+    }, {});
+
+    return Object.entries(hash)
+    .filter(([key, val]) => val ===1)
+    .map(([key, val]) => key)
+    .sort()
+    .join('');
+}
+
+const solution_4 = str => {
+    const hash = [...str].reduce((map, c) => map.set(c.)) (c) || 0) + 1), new Map());
+
+    return [...hash]
+    .filter(([, val]) => val === 1)
+    .map(([key]) => key)
+    .sort()
+    .join('')
+}
+
+console.log(solution('abcabcadc')); // "d"
+console.log(solution('abdc')); // "abcd"
+console.log(solution('hello')); // "eho"
+console.log(solution_2('abcabcadc')); // "d"
+console.log(solution_2('abdc')); // "abcd"
+console.log(solution_2('hello')); // "eho"
+console.log(solution_3('abcabcadc')); // "d"
+console.log(solution_3('abdc')); // "abcd"
+console.log(solution_3('hello')); // "eho"
+console.log(solution_4('abcabcadc')); // "d"
+console.log(solution_4('abdc')); // "abcd"
+console.log(solution_5('hello')); // "eho"

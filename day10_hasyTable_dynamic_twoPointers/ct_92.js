@@ -1,50 +1,64 @@
-// 한 번만 등장한 문자
+// 조건 문자열
 
 // ### **문제 설명**
-// 문자열 `str`이 매개변수로 주어집니다. `str`에서 한 번만 등장하는 문자를 사전 순으로 정렬한 문자열을 return 하도록 solution 함수를 완성해보세요. 한 번만 등장하는 문자가 없을 경우 빈 문자열을 return 합니다.
+// 문자열에 따라 다음과 같이 두 수의 크기를 비교하려고 합니다.
+// - 두 수가 `n`과 `m`이라면
+//     - ">", "=" : `n` >= `m`
+//     - "<", "=" : `n` <= `m`
+//     - ">", "!" : `n` > `m`
+//     - "<", "!" : `n` < `m`
+// 두 문자열 `ineq`와 `eq`가 주어집니다. `ineq`는 "<"와 ">"중 하나고, `eq`는 "="와 "!"중 하나입니다. 그리고 두 정수 `n`과 `m`이 주어질 때, `n`과 `m`이 `ineq`와 `eq`의 조건에 맞으면 1을 아니면 0을 return하도록 solution 함수를 완성해주세요.
 
-// ### 제한사항
-// - 0 < `str`의 길이 < 1,000
-// - `str` 은 소문자로만 이루어져 있습니다.
+// ### 제한 사항
+// - 1 ≤ `n`, `m` ≤ 100
 
 // ### 입출력 예
-// | str | result |
-// | --- | --- |
-// | "abcabcadc" | "d" |
-// | "abdc" | "abcd" |
-// | "hello" | "eho" |
+// | ineq | eq | n | m | result |
+// | --- | --- | --- | --- | --- |
+// | "<" | "=" | 20 | 50 | 1 |
+// | ">" | "!" | 41 | 78 | 0 |
 
 // ### 입출력 예 설명
 // 입출력 예 #1
-// - "abcabcadc"에서 하나만 등장하는 문자는 "d"입니다.
+// - 20 <= 50은 참이기 때문에 1을 return합니다.
 // 입출력 예 #2
-// - "abdc"에서 모든 문자가 한 번씩 등장하므로 사전 순으로 정렬한 "abcd"를 return 합니다.
-// 입출력 예 #3
-// - "hello"에서 한 번씩 등장한 문자는 "heo"이고 이를 사전 순으로 정렬한 "eho"를 return 합니다.
+// - 41 > 78은 거짓이기 때문에 0을 return합니다.
 
-const solution = str => {
-  const frequency = {};
-
-  // 문자열을 순회하며 각 문자의 빈도를 세기
-  for (const char of str) {
-      if (frequency[char]) {
-          frequency[char] += 1;
-      } else {
-          frequency[char] = 1;
-      }
+const solution = (ineq, eq, n, m) => {
+  // ">", "=" : n >= m
+  if (ineq === '>' && eq === '=') {
+    return n >= m ? 1 : 0;
+  }
+  // "<", "=" : n <= m
+  else if (ineq === '<' && eq === '=') {
+      return n <= m ? 1 : 0;
+  }
+  // ">", "!" : n > m
+  else if (ineq === '>' && eq === '!') {
+      return n > m ? 1 : 0;
+  }
+  // "<", "!" : n < m
+  else if (ineq === '<' && eq === '!') {
+      return n < m ? 1 : 0;
   }
 
-  const uniqueChars = [];
-  for (const char in frequency) {
-      if (frequency[char] === 1) {
-          uniqueChars.push(char);
-      }
-  }
-
-  // 필터링된 문자들을 사전 순으로 정렬후 붙이기
-  return uniqueChars.sort().join('');
 };
 
-console.log(solution('abcabcadc')); // "d"
-console.log(solution('abdc')); // "abcd"
-console.log(solution('hello')); // "eho"
+////////////////
+
+const solution_2 = (ineq, eq, n, m) => {
+  const operators = {
+    '>=' : (n, m) => n >= m, 
+    '<=' : (n, m) => n <= m,
+    '>!' : (n, m) => n > m,
+    '<!' : (n, m) => n < m
+  }
+
+  return +operators[ineq + eq](n, m);
+}
+
+console.log(solution('<', '=', 20, 50)); // 1
+console.log(solution('>', '!', 41, 78)); // 0
+
+console.log(solution_2('<', '=', 20, 50)); // 1
+console.log(solution_2('>', '!', 41, 78)); // 0

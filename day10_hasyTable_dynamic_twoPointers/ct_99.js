@@ -42,7 +42,7 @@ const twoSum = (nums, target) => {
 
         // 해시 테이블에서 페어 값이 존재하는지 확인
         if (map[complement] !== undefined) {
-          console.log(map);
+          // console.log(map);
             return [map[complement], i]; // 페어 값의 인덱스와 현재 인덱스를 반환
         }
 
@@ -54,6 +54,36 @@ const twoSum = (nums, target) => {
     return [];
 };
 
+/////////////
+
+const twoSum_2 = (nums, target) => {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) return [i, j];
+    }
+  }
+}
+
+const twoSum_3 = (nums, target) => {
+  const hash = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const pair = target - nums[i];
+
+    if(hash[pair] !== undefined) return [hash[pair], i];
+
+    hash[nums[i]] = i;
+  }
+}
+
 console.log(twoSum([2, 7, 11, 15], 9)); // [0, 1]
 console.log(twoSum([3, 2, 4], 6)); // [1, 2]
 console.log(twoSum([3, 3], 6)); // [0, 1]
+
+console.log(twoSum_2([2, 7, 11, 15], 9)); // [0, 1]
+console.log(twoSum_2([3, 2, 4], 6)); // [1, 2]
+console.log(twoSum_2([3, 3], 6)); // [0, 1]
+
+console.log(twoSum_3([2, 7, 11, 15], 9)); // [0, 1]
+console.log(twoSum_3([3, 2, 4], 6)); // [1, 2]
+console.log(twoSum_3([3, 3], 6)); // [0, 1]
